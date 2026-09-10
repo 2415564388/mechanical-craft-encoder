@@ -6,7 +6,8 @@ license="MIT"
 modId="mce_encoder"
 version="1.0.0"
 displayName="Mechanical Craft Encoder"
-description='''Adds the Mechanical Craft Encoder machine: feed in the materials of any Create "mechanical_crafting" recipe, send a redstone signal, and get out a Create Cardboard Package that carries the encoded craft order (order context). Feed the package back to a Crafter/Packager line to automate Create mechanical crafting.
+description='''Adds the Mechanical Craft Encoder machine: feed in the materials of any Create "mechanical_crafting" recipe, send a redstone signal, and get out a Create Cardboard Package that carries the encoded craft order (order context). Feed the package to a Crafter/Packager line to automate Create mechanical crafting.
+Packages remember their recipe size, so when a packager unwraps one onto a crafter wall LARGER than the recipe, the pattern is laid onto the wall automatically - a single 9x9 wall can carry any smaller recipe (3x4, 5x6, ...).
 Dependencies: Create only.'''
 
 [[dependencies.mce_encoder]]
