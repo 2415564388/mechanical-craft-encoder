@@ -1,0 +1,61 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.146'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+repositories {
+    // local mod jars used for compilation only (Create + optional JEI API)
+    flatDir { dirs 'libs' }
+    // Sponge Mixin (annotations only, needed to compile our Create-targeting mixins)
+    maven { url = 'https://repo.spongepowered.org/maven/' }
+}
+
+dependencies {
+    // Create (mechanical power) - required at runtime, only needed at compile time here
+    compileOnly files("libs/create-1.21.1-6.0.10.jar")
+    // Ponder API (bundled by Create as META-INF/jarjar) - Create BEs implement its VirtualBlockEntity
+    compileOnly files("libs/ponder-neoforge-1.0.82+mc1.21.1.jar")
+    // Optional JEI API (old JEI 19.27.0.340). The mod itself does not touch JEI,
+    // it is listed so the build has no hidden dependency on the newest JEI.
+    compileOnly files("libs/jei-1.21.1-neoforge-19.27.0.340.jar")
+    // Sponge Mixin annotations to write mixins against Create classes (runtime provided by NeoForge)
+    compileOnly "org.spongepowered:mixin:0.8.7"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

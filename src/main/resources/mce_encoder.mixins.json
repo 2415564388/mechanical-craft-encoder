@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "mce.encoder.create.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MechanicalCrafterBlockEntityMixin",
+    "PackagerBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

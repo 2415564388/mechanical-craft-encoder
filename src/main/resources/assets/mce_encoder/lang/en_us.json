@@ -1,0 +1,8 @@
+{
+  "block.mce_encoder.mechanical_craft_encoder": "Mechanical Craft Encoder",
+  "block.mce_encoder.mechanical_craft_encoder.filter": "Output filter",
+  "itemGroup.mce_encoder": "Mechanical Craft Encoder",
+  "tooltip.mce_encoder.mechanical_craft_encoder.brief": "Encodes a Create mechanical_crafting recipe into a cardboard package",
+  "tooltip.mce_encoder.mechanical_craft_encoder.shift_hint": "Hold SHIFT for details",
+  "tooltip.mce_encoder.mechanical_craft_encoder.details": "Load in the materials of a crafting recipe and apply a redstone signal to get an \"encoded\" cardboard package; insert it into a Packager (with a wall of mechanical crafters behind it) to finish the craft automatically.\n- The side filter on the machine accepts items: only recipes whose product passes the filter are encoded; a plain item limits it to that product, and an empty filter means no limit.\n- The crafter wall may be larger than the recipe (e.g. 3x4/5x6 on a 9x9) - the encoder places the pattern on a corner of the wall automatically."
+}

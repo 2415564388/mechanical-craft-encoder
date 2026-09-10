@@ -1,0 +1,22 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "pattern": [
+    " PPP ",
+    "P N P",
+    "PNKNP",
+    "P N P",
+    " PPP "
+  ],
+  "key": {
+    "K": { "item": "create:mechanical_crafter" },
+    "N": { "item": "minecraft:nether_star" },
+    "P": { "item": "create:precision_mechanism" }
+  },
+  "result": {
+    "count": 1,
+    "id": "mce_encoder:mechanical_craft_encoder"
+  },
+  "show_notification": false
+}

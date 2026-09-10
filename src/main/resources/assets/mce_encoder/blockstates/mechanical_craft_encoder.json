@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mce_encoder:block/mechanical_craft_encoder"
+    }
+  }
+}

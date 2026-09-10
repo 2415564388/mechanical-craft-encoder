@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+
+# Minecraft dev runtime
+runs/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+bin/
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+
+# Java
+*.class
+
+# Misc
+local.properties
+
+# NOTE: libs/ is intentionally NOT ignored - the Create/JEI/Ponder jars in it
+# are committed so the repo builds out of the box.

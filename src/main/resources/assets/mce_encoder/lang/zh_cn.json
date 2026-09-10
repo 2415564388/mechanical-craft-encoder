@@ -1,0 +1,8 @@
+{
+  "block.mce_encoder.mechanical_craft_encoder": "动力合成编码器",
+  "block.mce_encoder.mechanical_craft_encoder.filter": "产物过滤",
+  "itemGroup.mce_encoder": "动力合成编码器",
+  "tooltip.mce_encoder.mechanical_craft_encoder.brief": "把 Create 动力合成配方编码成纸板包裹",
+  "tooltip.mce_encoder.mechanical_craft_encoder.shift_hint": "按住 SHIFT 查看说明",
+  "tooltip.mce_encoder.mechanical_craft_encoder.details": "给机器装入合成配方所需材料并输入红石信号，输出一个\"已编码\"的纸板包裹；送入打包机（背后为动力合成器墙）即可自动完成动力合成。\n- 机器侧边的过滤器可放物品进行过滤：只编\"产物通过过滤\"的配方；放普通物品=限该产物，过滤槽为空时，不限产物。\n- 动力合成器墙可大于配方(如 9x9 可放 3x4/5x6)，动力合成编码器会自动把配方摆到墙的一角。"
+}
