@@ -1,8 +1,8 @@
 # Mechanical Craft Encoder (mce_encoder) — NeoForge 1.21.1 独立模组
 
-把齿轮盛宴(CDR)里“动力合成编码器”的功能移植成一个**只依赖 Create** 的独立模组，
-不依赖 MBD2 / LDLib2 / KubeJS，也**不依赖新版 JEI**（工程里只把老版 JEI jar 作为可选的
-compile-only 依赖，代码完全不引用 JEI）。
+一个**只依赖 Create** 的独立模组：把 Create 的机械合成配方编码成纸板包裹，并让打包机能够
+自动完成动力合成。不依赖新版 JEI（工程里只把老版 JEI jar 作为可选的 compile-only 依赖，
+代码完全不引用 JEI）。
 
 ## 功能
 
@@ -20,9 +20,8 @@ compile-only 依赖，代码完全不引用 JEI）。
 - **包裹内容**：每种材料各取 1 个样本，按物品身份聚合成**最多 9 种不同材料**（Create 包裹的
   9 格容量）。配方需要超过 9 种材料时，本次跳过且**不消耗任何材料**。
 - **订单上下文**用 Create 官方 API 写入：`PackageOrderWithCrafts.singleRecipe(...)`
-  （每格一个 `BigItemStack`，空格为 EMPTY）+ `PackageItem.addOrderContext(...)`
-  —— 等价于旧版 CDR 写 `Fragment` / `OrderContext`。包裹另外记录配方尺寸
-  （自定义数据 `mce_w` / `mce_h`），供拆包时定位。
+  （每格一个 `BigItemStack`，空格为 EMPTY）+ `PackageItem.addOrderContext(...)`。
+  包裹另外记录配方尺寸（自定义数据 `mce_w` / `mce_h`），供拆包时定位。
 - **自动输出**：包裹生成后自动推向**正下方**的容器/漏斗；推不进去就留在输出槽里，
   输出槽被占用时不编码。
 - **输入面**：顶面与四个水平侧面都可入料；**底面是输出**。
@@ -126,18 +125,6 @@ src/main/java/mce/encoder/
 src/main/resources/assets/mce_encoder/...   模型 / 贴图 / 语言（zh_cn、en_us）
 src/main/resources/data/mce_encoder/...     机器自身的机械合成配方
 ```
-
-## 与 CDR 原实现的对应
-
-| CDR（1.20.1，MBD2+KubeJS） | 本模组（Java） |
-|---|---|
-| `.sm` 机器定义 + LDLib GUI | 自注册方块/BE + `AbstractContainerMenu` |
-| KubeJS `handleChanged()` | `EncoderBlockEntity.tryEncode()`（干跑验证 → 选配方 → 编码包裹） |
-| `PackageItem` + NBT `Fragment/OrderContext` | `PackageItem.containing` + `PackageItem.addOrderContext`（官方等价 API） |
-| MBD2 输出槽自动 IO | 输出自动推到正下方 + 各面 ItemHandler 能力 |
-| （原版没有的能力） | 拆包时把小于墙的配方按世界坐标铺到墙的一角 |
-
-> 模型与贴图取自 CDR 包，遵循其原始授权。
 
 ## 许可证
 

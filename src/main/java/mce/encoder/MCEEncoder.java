@@ -8,8 +8,8 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 /**
  * Mechanical Craft Encoder - standalone NeoForge 1.21.1 mod.
- * Recreates the Create-Delight-Remake machine "mechanical_craft_encoder"
- * (encodes Create mechanical_crafting recipes into Create cardboard packages).
+ * Encodes Create mechanical_crafting recipes into Create cardboard packages,
+ * and lays small recipes onto a larger crafter wall when a packager unwraps them.
  */
 @Mod(MCEEncoder.MODID)
 public class MCEEncoder {
